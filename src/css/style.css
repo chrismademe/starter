@@ -1,3 +1,39 @@
-@tailwind base;
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.1rem;
+    line-height: 1.1;
+}
+
+p + p {
+    margin-block-start: 1.5rem;
+}
+
 @tailwind components;
 @tailwind utilities;

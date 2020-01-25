@@ -1,0 +1,8 @@
+{% macro alert(_) %}
+    <div class="bg-positive-900 text-positive-100 p-5">
+        {% if _.title %}
+            <h1 class="text-2xl text-white font-bold">{{ _.title }}</h1>
+        {% endif %}
+        {{ _.text }}
+    </div>
+{% endmacro %}

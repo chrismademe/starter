@@ -3,4 +3,9 @@ layout: default
 title: Design System
 ---
 
-<div class="bg-gray-300">Hello</div>
+{% from "components/alert.njk" import alert as alert %}
+
+{{ alert({
+    title: "Hello",
+    text: "Just an example component"
+}) }}
