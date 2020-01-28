@@ -1,0 +1,13 @@
+{% macro input(_) %}
+    <div class="{{ _.containerClass|default('mb-6') }}">
+        <label for="{{ _.name }}" class="block font-bold mb-1">
+            {{ _.label }}
+            {% if _.optional %}
+                <span class="inline-block ml-3 uppercase text-xs text-gray-500">{{ _.optionalLabel|default('Optional') }}</span>
+            {% endif %}
+        </label>
+
+        <input type="{{ _.type|default('text') }}" name="{{ _.name }}" class="block w-full border border-gray-400 rounded py-2 px-4 focus:border-blue-600">
+        <p class="text-xs text-gray-700 mt-1">{{ _.description }}</p>
+    </div>
+{% endmacro %}

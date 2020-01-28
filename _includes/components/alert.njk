@@ -1,8 +1,13 @@
+{#---
+type: [...colors]
+heading: Heading for the alert
+text: Main textual content of the alert
+---#}
 {% macro alert(_) %}
-    <div class="bg-positive-900 text-positive-100 p-5">
-        {% if _.title %}
-            <h1 class="text-2xl text-white font-bold">{{ _.title }}</h1>
+    <div class="bg-{{ _.type|default('gray') }}-900 text-{{ _.type|default('gray') }}-100 py-4 px-5 rounded-lg">
+        {% if _.heading %}
+            <span aria-role="heading" class="block leading-none text-lg text-white font-bold">{{ _.heading }}</span>
         {% endif %}
-        {{ _.text }}
+        {{ _.text | safe }}
     </div>
 {% endmacro %}

@@ -1,0 +1,5 @@
+{% macro button(_) %}
+    <button class="inline-block text-center text-shadow font-bold rounded shadow bg-{{ _.color }}-600 hover:bg-{{ _.color }}-700 text-white py-2 px-4">
+        {{ _.content }}
+    </button>
+{% endmacro %}

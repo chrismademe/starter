@@ -2,10 +2,59 @@
 layout: default
 title: Design System
 ---
+{% extends "canvas.njk" %}
+{% from "components/form.njk" import input as input %}
+{% from "components/button.njk" import button as button %}
 
-{% from "components/alert.njk" import alert as alert %}
+{% block content %}
 
-{{ alert({
-    title: "Hello",
-    text: "Just an example component"
-}) }}
+    <form>
+        {{ input({
+            name: "name",
+            label: "Name"
+        }) }}
+
+        {{ input({
+            name: "filming_date",
+            label: "Date of Filming",
+            description: "When would you like us to film?",
+            optional: true
+        }) }}
+
+        {{ input({
+            name: "email",
+            label: "E-mail Address",
+            type: "email",
+            containerClass: "mb-0",
+            state: "error"
+        }) }}
+
+        <div class="mt-10">
+            {{ button({
+                color: "green",
+                content: "Submit"
+            }) }}
+        </div>
+
+    </form>
+
+    <script>
+        // Set example states
+        const inputEmail = document.querySelector('[name="email"]')
+        inputEmail
+            .classList
+            .remove('border-gray-400')
+        inputEmail
+            .classList
+            .add('border-red-500')
+
+        const inputDate = document.querySelector('[name="filming_date"]')
+        inputDate
+            .classList
+            .remove('border-gray-400')
+        inputDate
+            .classList
+            .add('border-blue-600')
+    </script>
+
+{% endblock %}
