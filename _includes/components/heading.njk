@@ -1,0 +1,3 @@
+{% macro heading(_) %}
+    <h{{ _.size }}{% if _.class %} class="{{ _.class }}"{% endif %}>{{ _.content }}</h{{ _.size }}>
+{% endmacro %}

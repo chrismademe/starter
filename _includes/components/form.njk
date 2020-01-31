@@ -7,7 +7,46 @@
             {% endif %}
         </label>
 
-        <input type="{{ _.type|default('text') }}" name="{{ _.name }}" class="block w-full border border-gray-400 rounded py-2 px-4 focus:border-blue-600">
-        <p class="text-xs text-gray-700 mt-1">{{ _.description }}</p>
+        <input 
+            type="{{ _.type|default('text') }}"
+            name="{{ _.name }}"
+            class="block w-full border border-gray-400 rounded py-2 px-4 focus:border-blue-600"
+            {% if _.value %}value="{{ _.value }}"{% endif %}>
+
+        <p class="text-sm text-gray-600 mt-1">{{ _.description }}</p>
+    </div>
+{% endmacro %}
+
+{% macro select(_) %}
+    <div class="{{ _.containerClass|default('mb-6') }}">
+        <label for="{{ _.name }}" class="block font-bold mb-1">
+            {{ _.label }}
+            {% if _.optional %}
+                <span class="inline-block ml-3 uppercase text-xs text-gray-500">{{ _.optionalLabel|default('Optional') }}</span>
+            {% endif %}
+        </label>
+
+        <select name="{{ _.name }}" class="block w-full border border-gray-400 rounded py-2 px-4 focus:border-blue-600">
+            {% for key, value in _.options %}
+                <option value="{{ key }}" {% if _.value == key %}selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+
+        <p class="text-sm text-gray-600 mt-1">{{ _.description }}</p>
+    </div>
+{% endmacro %}
+
+{% macro textarea(_) %}
+    <div class="{{ _.containerClass|default('mb-6') }}">
+        <label for="{{ _.name }}" class="block font-bold mb-1">
+            {{ _.label }}
+            {% if _.optional %}
+                <span class="inline-block ml-3 uppercase text-xs text-gray-500">{{ _.optionalLabel|default('Optional') }}</span>
+            {% endif %}
+        </label>
+
+        <textarea name="{{ _.name }}" class="block w-full border border-gray-400 rounded py-2 px-4 focus:border-blue-600">{{ _.value }}</textarea>
+
+        <p class="text-sm text-gray-600 mt-1">{{ _.description }}</p>
     </div>
 {% endmacro %}
